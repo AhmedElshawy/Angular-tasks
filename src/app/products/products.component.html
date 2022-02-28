@@ -1,0 +1,59 @@
+<h1>{{storeName | uppercase}}</h1>
+<img [src]="storeLogo" alt="not found">
+
+<h3 *ngIf="isActive">
+    {{"We offer an explict discount "+ Discount}}
+</h3>
+<br>
+{{.05|percent}}
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Categories
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <li *ngFor="let i of categortList"><a class="dropdown-item" href="#">{{i.Name}}</a></li>
+    </ul>
+  </li>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div *ngIf="isPurchsed; then thenBlock; else elseBlock"></div>
+  <ng-template #elseBlock>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of productList">
+            <th scope="row">{{i.ID}}</th>
+            <td>{{i.Name}}</td>
+            <td>{{i.Quantity}}</td>
+            <td>{{i.Price}}</td>
+          </tr>
+        </tbody>
+      </table>
+  </ng-template>
+
+  <ng-template #thenBlock>
+      <h2>Thanks for purshasing from our store {{clientName}}</h2>
+  </ng-template>
+  
+  
+  
+
+  <label for="">Enter your name</label>
+  <br>
+  <input [(ngModel)]="clientName" type="text">
+  <br>
+  <br>
+    <button (click)="purshase()" type="button" class="btn btn-warning">Buy now!</button>
+  
