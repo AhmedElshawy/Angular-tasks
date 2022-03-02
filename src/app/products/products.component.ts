@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductServiceService } from 'src/servises/product-service.service';
 import { ICategory } from '../Shared-Classes-types/Category-interface';
 import { discount } from '../Shared-Classes-types/Discount-enum';
 import { Iproduct } from '../Shared-Classes-types/product-interface';
@@ -21,16 +22,11 @@ export class ProductsComponent implements OnInit {
   //bool for showing the discount
   isActive:boolean = true;
 
-  constructor() {
+  constructor(private ProductService:ProductServiceService) {
     this.Discount = discount.D1
     this.storeName= "h&m"
     this.storeLogo = "/assets/logo.png"
-    this.productList=[
-      {ID:1,Name:'Iphone 12', Quantity:10,Price:15000,Img:''},
-      {ID:2,Name:'Iphone 11', Quantity:15,Price:11000,Img:''},
-      {ID:3,Name:'Lenovo Labtop', Quantity:14,Price:10000,Img:''},
-
-    ];
+    this.productList= this.renderValues();
     this.categortList =
     [{ID:1,Name:'moblies'}
      , {ID:2,Name:'Cars'},
@@ -57,6 +53,11 @@ export class ProductsComponent implements OnInit {
       this.isPurchsed = false;
      }
      
+   }
+
+   //Method that renders the products
+  renderValues(){
+    return this.ProductService.getAllProducts();
    }
   
   ngOnInit(): void {
