@@ -9,7 +9,7 @@ export class HeaderComponent implements OnInit {
 
   constructor() { }
 
-  MyBanner:string = "./assets/pic.png";
+  MyBanner:string = "./assets/pic.jpg";
 
   ngOnInit(): void {
   }

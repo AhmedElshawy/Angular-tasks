@@ -1,25 +1,22 @@
 <h1>{{storeName | uppercase}}</h1>
-<img [src]="storeLogo" alt="not found">
+<!-- <img [src]="storeLogo" alt="not found"> -->
 
 <h3 *ngIf="isActive">
     {{"We offer an explict discount "+ Discount}}
 </h3>
-<br>
-{{.05|percent}}
+<!-- <br> -->
+<!-- {{.05|percent}} -->
 
 
-<li class="nav-item dropdown">
+<!-- <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Categories
     </a>
     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
       <li *ngFor="let i of categortList"><a class="dropdown-item" href="#">{{i.Name}}</a></li>
     </ul>
-  </li>
-  <br>
-  <br>
-  <br>
-  <br>
+  </li> -->
+
 
   <div *ngIf="isPurchsed; then thenBlock; else elseBlock"></div>
   <ng-template #elseBlock>
